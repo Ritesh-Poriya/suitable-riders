@@ -1,0 +1,67 @@
+/**
+ * Define the required package type for delivery
+ */
+export enum PackageType {
+  SQUARE_BOX_BAG = 'SQUARE_BOX_BAG',
+  PIZZA_BOX_BAG = 'PIZZA_BOX_BAG',
+}
+
+/**
+ * Define preferred vehicles for delivery
+ */
+export enum PreferredVehicle {
+  ANY = 'ANY',
+  CYCLE = 'CYCLE',
+  BIKE = 'BIKE',
+  eBIKE = 'eBIKE',
+  CAR = 'CAR',
+}
+
+/**
+ * Define payment method for jobs
+ */
+
+export enum PreferredPaymentMethod {
+  CASH = 'CASH',
+  CARD = 'CARD',
+  EITHER = 'EITHER',
+  EITHER_CASH = 'EITHER_CASH',
+  EITHER_CARD = 'EITHER_CARD',
+}
+
+export enum JobApprovalStatus {
+  PENDING = 'PENDING',
+  ACCEPTED = 'ACCEPTED',
+  ARRIVED_TO_PICKUP = 'ARRIVED_TO_PICKUP',
+  PICKEDUP = 'PICKEDUP',
+  DELIVERED = 'DELIVERED',
+  CANCELLED_BY_MERCHANT = 'CANCELLED_BY_MERCHANT',
+  CANCELLED_BY_DRIVER = 'CANCELLED_BY_DRIVER',
+  EXPIRED = 'EXPIRED',
+}
+
+export enum JobEventType {
+  JOB_COMPLETED = 'JOB_COMPLETED',
+  JOB_CANCELLED_BY_DRIVER = 'JOB_CANCELLED_BY_DRIVER',
+  JOB_CANCELLED_BY_MERCHANT = 'JOB_CANCELLED_BY_MERCHANT',
+  NEW_JOB_AVAILABLE = 'NEW_JOB_AVAILABLE',
+  JOB_ACCEPTED = 'JOB_ACCEPTED',
+  FOOD_IS_READY = 'FOOD_IS_READY',
+  RIDER_HAS_ARRIVED = 'RIDER_HAS_ARRIVED',
+  ORDER_PICKED_UP_BY_MERCHANT = 'ORDER_PICKED_UP_BY_MERCHANT',
+  ORDER_PICKED_UP_BY_DRIVER = 'ORDER_PICKED_UP_BY_DRIVER',
+  JOB_EXPIRED = 'JOB_EXPIRED',
+  JOB_DECLINED_BY_DRIVER = 'JOB_DECLINED_BY_DRIVER',
+  NEW_JOB_AVAILABLE_PROCESS = 'NEW_JOB_AVAILABLE_PROCESS',
+  JOB_UNABLE_TO_DELIVER = 'JOB_UNABLE_TO_DELIVER',
+}
+
+export type BucketJobsType = {
+  jobStatus?: JobApprovalStatus;
+  jobOfferAmount: number;
+};
+
+export enum OrderType {
+  PREPAID = 'PREPAID',
+  COD = 'COD',
+}

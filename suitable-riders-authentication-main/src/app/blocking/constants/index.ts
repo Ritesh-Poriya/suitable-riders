@@ -1,0 +1,5 @@
+export const RATE_LIMIT_KEY = 'RATE_LIMIT_KEY';
+export const RATE_LIMIT_ERROR = 'RATE_LIMIT_ERROR';
+export const RATE_LIMIT_IN_WINDOW_KEY = 'RATE_LIMIT_IN_WINDOW_IN_MINUTES';
+export const IP_BLOCK_DURATION_KEY = 'IP_BLOCK_DURATION';
+export const FORWARDED_IP_HEADER_KEY = 'x-forwarded-for';

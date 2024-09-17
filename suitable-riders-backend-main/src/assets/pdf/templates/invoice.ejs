@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Invoice</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        background-color: #ffffff;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin: 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      tr {
+        page-break-inside: avoid;
+      }
+      td {
+        vertical-align: top;
+      }
+      h1 {
+        font-size: 1.75rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+      h3 {
+        font-size: 1rem;
+      }
+      .bg-perpal-text{
+        background: #A012A0;
+      }
+      .bg-perpal{
+        background-color: rgba(160, 18, 160, 0.16);
+      }
+    </style>
+  </head>
+
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td style="background-color: #e2171e; padding: 30px 50px 25px">
+            <table>
+              <tr>
+                <td colspan="2" style="text-align: center">
+                  <h1 style="color: #fff">Invoice</h1>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h2 style="color: #fff; padding-bottom: 10px">
+                    Invoice Number
+                  </h2>
+                  <h2 style="color: #c3f937; padding-bottom: 30px">
+                    <%=invoiceNumber%>
+                  </h2>
+                </td>
+                <td style="text-align: right">
+                  <h2 style="color: #fff; padding-bottom: 10px">Job ID</h2>
+                  <h2 style="color: #c3f937; padding-bottom: 30px">
+                    <%=job.jobID%>
+                  </h2>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h2 style="color: #fff; padding-bottom: 10px">
+                    Invoice Date
+                  </h2>
+                  <h2 style="color: #c3f937"><%=todayDate%></h2>
+                </td>
+                <td style="text-align: right">
+                  <h2 style="color: #fff; padding-bottom: 10px">Job Date</h2>
+                  <h2 style="color: #c3f937"><%=jobDate%></h2>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding: 50px 50px">
+            <table>
+              <tr>
+                <td style="width: 50%; padding-right: 16px">
+                  <h2 style="color: #19181a; padding-bottom: 10px">
+                    Bill From
+                  </h2>
+                  <h4
+                    style="
+                      color: #19181a;
+                      padding-bottom: 10px;
+                      font-weight: 500;
+                    "
+                  >
+                    <%=driverName%>
+                  </h4>
+                  <h4
+                    style="
+                      color: #19181a;
+                      padding-bottom: 10px;
+                      font-weight: 500;
+                    "
+                  >
+                    <%=driverEmail%>
+                  </h4>
+                  <h4 style="color: #19181a; font-weight: 500">
+                    <%=driverPhoneNo%>
+                  </h4>
+                </td>
+                <td style="width: 50%; padding-left: 18px">
+                  <h2 style="color: #19181a; padding-bottom: 10px">Bill To</h2>
+                  <h4
+                    style="
+                      color: #19181a;
+                      padding-bottom: 10px;
+                      font-weight: 500;
+                      text-transform: capitalize;
+                    "
+                  >
+                    <%=merchant.businessInfo.businessName %>
+                  </h4>
+                  <h4
+                    style="
+                      color: #19181a;
+                      padding-bottom: 10px;
+                      font-weight: 500;
+                    "
+                  >
+                    <%=merchantEmail %>
+                  </h4>
+                  <h4 style="color: #19181a; font-weight: 500">
+                    <%=merchantPhoneNo %>
+                  </h4>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="background-color: #f8f7fa; padding: 18px 50px">
+            <table>
+              <tr>
+                <td><h2 style="color: #19181a">Order Details</h2></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding: 30px 50px">
+            <table>
+              <tr>
+                <td style="width: 50%; padding-right: 16px">
+                  <h2 style="color: #19181a; padding-bottom: 10px">
+                    Pick up Address
+                  </h2>
+                  <h4
+                    style="
+                      color: #19181a;
+                      padding-bottom: 30px;
+                      font-weight: 500;
+                    "
+                  >
+                    <%=merchant.businessInfo.address.formattedAddress%>
+                  </h4>
+                </td>
+                <td style="width: 50%; padding-left: 16px">
+                  <h2 style="color: #19181a; padding-bottom: 10px">
+                    Delivery Address
+                  </h2>
+                  <h4
+                    style="
+                      color: #19181a;
+                      padding-bottom: 30px;
+                      font-weight: 500;
+                    "
+                  >
+                    <%=job.address %>, <%=job.postalCode%>
+                  </h4>
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 50%; padding-right: 16px">
+                  <h2 style="color: #19181a; padding-bottom: 10px">
+                    Pick up Time
+                  </h2>
+                  <h4 style="color: #19181a; font-weight: 500">
+                    <%=pickupTime%>
+                  </h4>
+                </td>
+                <td style="width: 50%; padding-left: 16px">
+                  <h2 style="color: #19181a; padding-bottom: 10px">
+                    Delivery Time
+                  </h2>
+                  <h4 style="color: #19181a; font-weight: 500">
+                    <%=deliveryTime%>
+                  </h4>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding: 0 50px">
+            <table>
+              <tr>
+                <td>
+                  <hr style="border-top: 1px solid #7f7f7f; margin: 20px 0" />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding: 30px 50px">
+            <table>
+              <tr>
+                <td>
+                  <h2 style="color: #19181a; padding-bottom: 10px">
+                    Delivery Distance
+                  </h2>
+                  <h4
+                    style="
+                      color: #19181a;
+                      padding-bottom: 30px;
+                      font-weight: 500;
+                    "
+                  >
+                    <%= job.travellingDistance%><span style="padding-left: 5px"
+                      >Miles</span
+                    >
+                  </h4>
+                </td>
+                <%if (packageType.length > 0) {%>
+                <td style="padding: 0 16px">
+                  <h2 style="color: #19181a; padding-bottom: 10px">
+                    Package Type
+                  </h2>
+                  <% for(let package of packageType) {%>
+                  <h4
+                    style="
+                      color: #19181a;
+                      padding-bottom: 10px;
+                      font-weight: 500;
+                    "
+                  >
+                    <%=package %>
+                  </h4>
+                  <% } %>
+                </td>
+                <% } %>
+                <td>
+                  <h2 style="color: #19181a; padding-bottom: 10px">Vehicle</h2>
+                  <h4
+                    style="
+                      color: #181a19;
+                      padding-bottom: 10px;
+                      font-weight: 500;
+                      text-transform: capitalize;
+                    "
+                  >
+                    <%=vehicleName%>
+                  </h4>
+                  <h4
+                    style="
+                      color: #19181a;
+                      padding-bottom: 10px;
+                      font-weight: 500;
+                    "
+                  >
+                    <%=vehicle.vehicleRegistrationNumber%>
+                  </h4>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <% if(job.orderType === "COD") {%>
+        <tr>
+          <td style="padding: 50px;" >
+            <table style="background-color: #fce8e8">
+              <tr>
+                <td colspan="2" style="position: relative;">
+                  <h3 style="background: #E2171E;
+                  color: #fff;
+                  position: absolute;
+                  width: 120px;
+                  text-align: center;
+                  line-height: 44px;
+                  top: -20px;
+                  margin: 0 auto;
+                  left: 0px; right: 0px;">COD Order</h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 30px 30px 3px; vertical-align: middle;">
+                  <h2 style="color: #262527">Order Amount</h2>
+                </td>
+                <td style="text-align: right; padding: 30px 30px 3px;">
+                  <h2 style="color: #262527">£<%=orderAmount%></h2>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding: 3px 30px 10px; vertical-align: middle;">
+                  <h3 style="color: #515152; font-weight: normal; max-width: 490px;"><% if(forRider) { %> You need to collect this amount from the consumer upon the completion of this delivery. <% } else { %> This amount is to be collected by the rider from the consumer upon the completion of thr delivery. <% } %> </h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 30px 3px; vertical-align: middle;">
+                  <h2 style="color: #161516">Job Fee Offer</h2>
+                </td>
+                <td style="text-align: right; padding: 10px 30px 3px;">
+                  <h2 style="color: #161516">£<%=jobOfferAmount%></h2>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding: 3px 30px 10px; vertical-align: middle;">
+                  <h3 style="color: #515152; font-weight: normal;">Job fee for this delivery.</h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 30px 3px; vertical-align: middle;">
+                  <h2 style="color: #161516"><% if(forRider) { %> Pay to Merchant <% } else { %> Collect from Rider <% } %> </h2>
+                </td>
+                <td style="text-align: right; padding: 10px 30px 3px;">
+                  <h2 style="color: #161516">£<%=payToMerchantAmount%></h2>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding: 3px 30px 30px; vertical-align: middle;">
+                  <h3 style="color: #515152; font-weight: normal;"><% if(forRider) { %>You have to pay this amount to the merchant when you pick up the order so that you don’t have to return to pay the collection from the consumer. (It’s Order Amount - Job Fee) <% } else { %> Collect this amount from the rider when he picks up the order so that he doesn't have to return to pay you the collection from the consumer.(it's Order Amount - Job Free) <% } %> </h3>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <% } else { %>
+          <% if(job.preferredPaymentMethod === "CASH") {%>
+        <tr>
+          <td style="padding: 25px 50px 50px;;" >
+            <table style="background-color:rgba(225, 250, 210, 0.5)">
+              <tr>
+                <td colspan="2" style="position: relative;">
+                  <h3 style="background: #C3F938;
+                  color: #161516;
+                  position: absolute;
+                  width: 156px;
+                  text-align: center;
+                  line-height: 44px;
+                  top: -20px;
+                  margin: 0 auto;
+                  left: 0px; right: 0px;">PREPAID Order</h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 30px 30px 3px; vertical-align: middle;">
+                  <h2 style="color: #161516">Job Fee Offer</h2>
+                </td>
+                <td style="text-align: right; padding: 30px 30px 3px;">
+                  <h2 style="color: #161516">
+                    <img
+                        src="<%=SRUrl%>/media/images/platform/cash.png"
+                        ,
+                        style="
+                          width: 25px;
+                          vertical-align: middle;
+                          margin-right: 8px; ;
+                        " />
+                  <span style="element.style {
+                    background: #C3F938;
+                    font-size: 1.5rem;
+                    color: #3E4657;
+                    padding: 4px 9px;
+                }">Cash</span> - £<%=jobOfferAmount%></h2>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding: 3px 30px 30px; vertical-align: middle;">
+                  <h3 style="color: #515152; font-weight: normal;">Job fee for this delivery.</h3>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <% } else if(job.preferredPaymentMethod === "CARD") { %>
+        <tr>
+          <td style="padding: 25px 50px 50px;;" >
+            <table style="background-color:rgba(160, 18, 160, 0.16)">
+              <tr>
+                <td colspan="2" style="position: relative;">
+                  <h3 style="background: #A012A0;
+                  color: #fff;
+                  position: absolute;
+                  width: 156px;
+                  text-align: center;
+                  line-height: 44px;
+                  top: -20px;
+                  margin: 0 auto;
+                  left: 0px; right: 0px;">PREPAID Order</h3>
+                </td>
+              </tr>              
+              <tr>
+                <td style="padding: 30px 30px 3px; vertical-align: middle;">
+                  <h2 style="color: #161516">Job Fee Offer</h2>
+                </td>
+                <td style="text-align: right; padding: 30px 30px 3px;">
+                  <h2 style="color: #161516">
+                    <img
+                        src="<%=SRUrl%>/media/images/platform/cash.png"
+                        ,
+                        style="
+                          width: 25px;
+                          vertical-align: middle;
+                          margin-right: 8px; ;
+                        " />
+                  <span style="element.style {
+                    background: #C3F938;
+                    font-size: 1.5rem;
+                    color: #3E4657;
+                    padding: 4px 9px;
+                }">Card</span> - £<%=jobOfferAmount%></h2>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding: 3px 30px 30px; vertical-align: middle;">
+                  <h3 style="color: #515152; font-weight: normal;">Job fee for this delivery.</h3>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <% } else { %>
+        <tr>
+          <td style="padding: 25px 50px 50px;" >
+            <table style="background-color:rgba(122, 122, 237, 0.16)">
+              <tr>
+                <td colspan="2" style="position: relative;">
+                  <h3 style="background: #7A7AED;
+                  color: #fff;
+                  position: absolute;
+                  width: 156px;
+                  text-align: center;
+                  line-height: 44px;
+                  top: -20px;
+                  margin: 0 auto;
+                  left: 0px; right: 0px;">PREPAID Order</h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 30px 30px 3px; vertical-align: middle;">
+                  <h2 style="color: #161516">Job Fee Offer</h2>
+                </td>
+                <td style="text-align: right; padding: 30px 30px 3px;">
+                  <h2 style="color: #161516">£<%=jobOfferAmount%></h2>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 3px 30px 30px; vertical-align: middle;">
+                  <h3 style="color: #515152; font-weight: normal;">Job fee for this delivery.</h3>
+                </td>
+                <td style="text-align: right; padding: 3px 30px 30px;">
+                  <h3 style="color: #3E4657;">
+                  <img
+                        src="<%=SRUrl%>/media/images/platform/cash.png"
+                        ,
+                        style="
+                          width: 25px;
+                          vertical-align: middle;
+                          margin-right: 8px; ;
+                        " /> <span style="text-decoration: line-through;">Either</span>
+                  <% if(job.preferredPaymentMethod === "EITHER_CASH") { %>(<span style="
+                    background: #C3F938;
+                    font-size: 1rem;
+                    color: #3E4657;
+                    padding: 4px 9px;">Cash</span> / <span style="
+                    background: #dddddd;
+                    font-size: 1rem;
+                    color: #3E4657;
+                    padding: 4px 9px; text-decoration: line-through;">Card</span>) <% } else { %> (<span style="
+                    background: #dddddd;
+                    font-size: 1rem;
+                    color: #3E4657;
+                    padding: 4px 9px; text-decoration: line-through;">Cash</span> / <span style="
+                    background: #C3F938;
+                    font-size: 1rem;
+                    color: #3E4657;
+                    padding: 4px 9px;">Card</span>) <% } %></h3>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+          <% } %>
+        <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>

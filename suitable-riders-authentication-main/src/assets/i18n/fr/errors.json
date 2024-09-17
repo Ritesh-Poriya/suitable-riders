@@ -1,0 +1,23 @@
+{
+  "IP_BLOCKED": "fr:Your IP is blocked for {timeToUnblock} minutes",
+  "USER_ALREADY_EXISTS_WITH_EMIAl_OR_PHONE": "fr:User already exists with this email or phone number",
+  "URL_NOT_FOUND": "fr:Url not found",
+  "WRONG_OPT": "fr:Wrong otp",
+  "USER_ALREADY_EXISTS": "fr:User already exists",
+  "USER_NOT_FOUND": "fr:User not found",
+  "SESSION_EXPIRED": "fr:Session Expired",
+  "INVALID_CREDENTIALS": "fr:Invalid credentials",
+  "INVALID_REFRESH_TOKEN": "fr:Invalid refresh token",
+  "INVALID_DATE_FORMAT": "fr:Invalid date format",
+  "INVALID_LOG_TYPE": "fr:Invalid log type",
+  "FIREBASE_ID_TOKEN_INVALID": "fr:Firebase id token invalid",
+  "BAD_REQUEST": "fr:Bad request",
+  "USER_NOT_ALLOWED_TO_DELETE": "fr:You are not allowed to delete this user",
+  "USER_NOT_EXIST_FOR_THIS_ROLE": "fr:User does not exist for this role",
+  "UNAUTHORIZED": "fr:Unauthorized",
+  "EMAIL_ALREADY_EXISTS_WITH_DIFFERENT_PHONE_NO": "fr:Email already exists with different phone number",
+  "PHONE_NO_ALREADY_EXISTS_WITH_DIFFERENT_EMAIL": "fr:Phone number already exists with different email",
+  "VALIDATION_FAILED": "fr:Validation failed",
+  "PHONE_NO_NOT_CHANGED": "fr:Phone number not changed",
+  "ACCOUNT_BLOCKED": "fr:Your account is blocked."
+}

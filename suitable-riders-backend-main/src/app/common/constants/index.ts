@@ -1,0 +1,9 @@
+export const REQUEST_LANG_KEY = 'i18nLang';
+export const HEADER_LANG_KEY = 'x-custom-lang';
+export const IS_PUBLIC = 'isPublic';
+export const ROLES_KEY = 'roles';
+export const AUTHORIZATION_QUERY_PARAM_KEY = 'access_token';
+export const CHECKED_BLOCKED_USER = 'checkedBlockedUser';
+export const IS_SUBSCRIPTION_ACTIVE = 'isSubscriptionActive';
+export const JIMP_MAX_FILE_SIZE_FOR_PROCESSING_IN_MB = 7;
+export const API_VERSION = 'API-Version';

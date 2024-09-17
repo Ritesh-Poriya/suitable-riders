@@ -1,0 +1,3 @@
+export enum AdminSettingsEventType {
+  IS_DAY_LIGHT_SAVING_ENABLED_UPDATE = 'IS_DAY_LIGHT_SAVING_ENABLED_UPDATE',
+}

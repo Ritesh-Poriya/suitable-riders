@@ -1,0 +1,2 @@
+export const JOB_QUEUE_NAME = 'QUEUE_JOB';
+export const NEW_JOB_AVAILABLE_PROCESS = 'NEW_JOB_AVAILABLE';

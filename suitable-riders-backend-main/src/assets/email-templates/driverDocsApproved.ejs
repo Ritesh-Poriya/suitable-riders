@@ -1,0 +1,34 @@
+<%- include('email-header') %>
+  <table bgcolor="#FFFFFF" style="background: #fff; margin: 0 auto;" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+      <tr>
+        <td valign="top" style="padding: 10px; font-size: 14px; text-align: justify">
+          <div style="color: #555">
+            <p>
+              <b>Dear <%= driverName %>,</b>
+            </p>
+          </div>
+          <div style="margin-top: 15px; font-size: 14px; color: #555">
+            <p>
+              We have reviewed your profile and we are happy to inform you that your rider profile has been activated
+              successfully. You can now login to the app and start accepting the delivery jobs.
+            </p>
+            <table>
+              <tr>
+                <td style="
+                    padding: 6px 12px;
+                    background-color: #e2171e;
+                    border-radius: 3px;
+                  ">
+                  <a href="<%=SRUrl%>/apps" style="
+                  font-weight: 500;
+                  color: #fff;
+                  text-decoration: none;
+                ">CHECK NEW JOBS</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+<%- include('email-footer') %>

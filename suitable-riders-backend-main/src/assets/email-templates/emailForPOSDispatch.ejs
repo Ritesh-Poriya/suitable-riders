@@ -1,0 +1,27 @@
+<%- include('email-header') %>
+<table bgcolor="#FFFFFF" style="background: #fff; margin: 0 auto;" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+      <tr>
+        <td valign="top" style="padding: 10px; font-size: 14px; text-align: justify">
+        <div style="color: #555">
+          <p>
+            <b>Dear <%= merchantName %>,</b>
+          </p>
+        </div>
+        <div style="margin-top: 15px; font-size: 14px; color: #555">
+          <p>
+            We will be dispatching the POS terminal to you which you can use to
+            create delivery jobs for your orders. Please make a payment of
+            £250.00 quoting your enrolment number in the transaction summary. We
+            have attached a document with the necessary details to facilitate
+            you to make the payment online to our bank account.
+          </p>
+          <p>
+            Once the payment is received, we will dispatch the device to you and
+            you can login to the device using your Suitable Riders account to
+            get started.
+          </p>
+        </div>
+      </td>
+      </tr>
+<%- include('email-footer') %>

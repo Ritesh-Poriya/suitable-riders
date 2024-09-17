@@ -1,0 +1,23 @@
+<%- include('email-header') %>
+<table bgcolor="#FFFFFF" style="background: #fff; margin: 0 auto;" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+      <tr>
+        <td valign="top" style="padding: 10px; font-size: 14px; text-align: justify">
+          <div style="color: #555">
+            <p>
+              <b>Dear <%= merchantName %>,</b>
+            </p>
+          </div>
+          <div style="margin-top: 15px; font-size: 14px; color: #555">
+            <p>
+              You have successfully applied for the merchant enrolment with the
+              request number <%=merchantNumber%>.
+            </p>
+            <p>
+              We will check the details and the documents that you submitted. We
+              will keep you updated through email on the enrollment process.
+            </p>
+          </div>
+        </td>
+      </tr>
+<%- include('email-footer') %>

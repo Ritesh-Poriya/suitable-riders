@@ -1,0 +1,2 @@
+export const WEBHOOK_URL_CONSUMER = 'URL';
+export const WEBHOOK_AUTH_TOKEN_CONSUMER = 'AUTH_TOKEN';

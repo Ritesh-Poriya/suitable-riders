@@ -1,0 +1,54 @@
+# Default variables for Dev
+variables:
+  PROJECT_ROOT: ''
+  TEST_CONFIG: '/home/suitableriders/.deploy_configs/SuitableRiders-Auth/test'
+  PM2_PROCESS: ''
+
+cache:
+  paths:
+    - node_modules
+
+stages:
+  - test
+  - deploy
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'develop'
+      variables:
+        PROJECT_ROOT: '/home/suitableriders/web/dev.suitableriders.com/node-projects/suitable-riders-authentication'
+        PM2_PROCESS: 'SR-Auth-Dev-7000'
+    - if: $CI_COMMIT_BRANCH == 'main'
+      variables:
+        PROJECT_ROOT: '/home/suitableriders/web/suitableriders.com/node-projects/suitable-riders-authentication'
+        PM2_PROCESS: 'SR-Auth-Prod-7001'
+
+test_staging:
+  stage: test
+  script:
+    - npm install
+    - cp -r $TEST_CONFIG/. ./
+    - npm run build
+    - npm run start:test
+    - echo "Basic setup tested successfully" && sleep 2
+  only:
+    - develop
+    - main
+
+deploy_staging:
+  stage: deploy
+  script:
+    - cd $PROJECT_ROOT
+    - pwd
+    - sudo -H -u suitableriders bash -c "git checkout $CI_COMMIT_BRANCH"
+    - sudo -H -u suitableriders bash -c "git pull"
+    - sudo -H -u suitableriders bash -c "git checkout $CI_COMMIT_SHORT_SHA"
+    - sudo -H -u suitableriders bash -c "pm2 status | grep $PM2_PROCESS"
+    - sudo -H -u suitableriders bash -c "npm install"
+    - sudo -H -u suitableriders bash -c "npm run build"
+    - sudo -H -u suitableriders bash -c "pm2 restart $PM2_PROCESS"
+    - sudo -H -u suitableriders bash -c "pm2 log $PM2_PROCESS & sleep 30; kill -INT %+"
+    - echo "Deployment completed successfully" && sleep 2
+  only:
+    - develop
+    - main
